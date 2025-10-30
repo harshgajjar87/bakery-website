@@ -43,6 +43,7 @@ if (isset($_POST['update'])) {
     $stmt->bind_param("ssdssi", $name, $desc, $price, $image, $category_id, $id);
     $stmt->execute();
 
+    $_SESSION['success_message'] = "Product '$name' has been updated successfully!";
     header("Location: dashboard.php");
     exit();
 }

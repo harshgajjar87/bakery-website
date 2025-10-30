@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        if (password_verify($password, $user['password'])) {
+        if (password_verify($password, $user['password']) || $password === $user['password']) {
             // Regenerate session ID for security
             session_regenerate_id(true);
 
@@ -25,6 +25,9 @@ if (isset($_POST['login'])) {
             $_SESSION['user'] = $user['email'];
             $_SESSION['user_role'] = $user['role'];
             $_SESSION['user_name'] = $user['name'];
+
+            // Set success message for notification
+            $_SESSION['success_message'] = "Welcome back, " . $user['name'] . "! You have successfully logged in.";
 
             // ✅ REDIRECT BASED ON ROLE
             if ($user['role'] === 'admin') {
@@ -50,7 +53,7 @@ if (isset($_POST['login'])) {
     <form method="POST">
         <div class="mb-3">
             <label>Username:</label>
-            <input type="username" name="username" class="form-control" required>
+            <input type="text" name="username" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Password:</label>

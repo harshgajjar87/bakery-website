@@ -11,6 +11,17 @@
 </head>
 
 <body>
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMessage">
+                    <!-- Message will be inserted here -->
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
         <?php if (isset($_SESSION['user_id']) || (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin')): ?>
@@ -65,3 +76,17 @@
             </div>
         </div>
     </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Display success message if exists
+        <?php if (isset($_SESSION['success_message'])): ?>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toastMessage = "<?php echo addslashes($_SESSION['success_message']); ?>";
+                document.getElementById('toastMessage').textContent = toastMessage;
+                const toast = new bootstrap.Toast(document.getElementById('successToast'));
+                toast.show();
+                <?php unset($_SESSION['success_message']); ?>
+            });
+        <?php endif; ?>
+    </script>

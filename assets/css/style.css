@@ -216,7 +216,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Main Content */
 .main-content {
     padding-right: 30px;
-    margin-top: 5%;
 }
 
 .main-content h1, .main-content p {
@@ -232,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 0;
 }
 
 .slider-img {
@@ -247,12 +246,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Product Grid */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
 .col-md-4 {
     flex: 1 1 calc(33.333% - 1rem);
     min-width: 280px;
@@ -339,6 +332,16 @@ footer a:hover {
     to { transform: rotate(360deg); }
 }
 
+/* Toast Styles */
+.toast-container {
+    z-index: 1060;
+}
+
+.toast {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-end { text-align: right; }
@@ -347,3 +350,34 @@ footer a:hover {
 .mt-5 { margin-top: 3rem; }
 .mb-4 { margin-bottom: 1.5rem; }
 .ms-2 { margin-left: 0.5rem; }
+
+/* --- Fix layout for main content and image slider --- */
+.container .row.align-items-start {
+  display: flex;
+  flex-wrap: nowrap; /* Keeps both in same row */
+  align-items: flex-start;
+}
+
+.main-content {
+  flex: 0 0 65%; /* roughly matches col-md-7 */
+  max-width: 65%;
+}
+
+.image-slider {
+  flex: 0 0 35%; /* matches col-md-5 */
+  max-width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Reset for small screens */
+@media (max-width: 991px) {
+  .container .row.align-items-start {
+    flex-wrap: wrap;
+  }
+  .main-content, .image-slider {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}

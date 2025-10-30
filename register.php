@@ -21,7 +21,10 @@ if (isset($_POST['register'])) {
         $stmt = $conn->prepare("INSERT INTO users (name, email, mobile, username, password, address, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $name, $email, $mobile, $username, $password, $address, $role);
         if ($stmt->execute()) {
-            $success = "Registration successful. You can now <a href='login.php'>login</a>.";
+            session_start();
+            $_SESSION['success_message'] = "Registration successful! Welcome to Harsh Cake Zone, $name. You can now log in.";
+            header("Location: login.php");
+            exit();
         } else {
             $error = "Registration failed. Please try again.";
         }

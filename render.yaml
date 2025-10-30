@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bakery-website
+    runtime: php
+    buildCommand: "echo 'No build step'"
+    startCommand: "php -S 0.0.0.0:$PORT -t ."
+    envVars:
+      - key: DB_HOST
+        value: your_mysql_host  # Replace with your MySQL host
+      - key: DB_NAME
+        value: bakery_db
+      - key: DB_USER
+        value: your_mysql_user  # Replace with your MySQL username
+      - key: DB_PASS
+        value: your_mysql_pass  # Replace with your MySQL password

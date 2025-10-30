@@ -5,21 +5,22 @@ include('config/db.php');
 ?>
 
 <div class="container mt-5">
-    <div class="row">
+     <div class="row align-items-center justify-content-between">
         <!-- Left Side: Main Content -->
-        <div class="col-md-7 main-content">
-            <h1>Welcome to Harsh Cake Zone.</h1>
-            <p>Delicious cakes and pastries made with love. Order online and enjoy at home!
-            From freshly baked cupcakes to decadent cheesecakes, we have something for every sweet tooth.
-            Whether it's a birthday, anniversary, or just a craving, we bake with passion and precision. 
+        <div class="col-md-6 col-12 main-content">
+            <h1 class="fw-bold text-brown">Welcome to Harsh Cake Zone.</h1>
+            <p class="lead">
+                Delicious cakes and pastries made with love. Order online and enjoy at home!  
+                From freshly baked cupcakes to decadent cheesecakes, we have something for every sweet tooth.  
+                Whether it's a birthday, anniversary, or just a craving — we bake with passion and precision.
             </p>
-            <a href="login.php" class="btn btn-primary">Login to Order</a>
+            <a href="login.php" class="btn btn-warning me-2">Login to Order</a>
             <a href="register.php" class="btn btn-outline-secondary">Register</a>
         </div>
 
         <!-- Right Side: Image Slider -->
-        <div class="col-md-5 image-slider">
-            <img id="sliderImage" src="assets/images/banner.jpg" alt="Slideshow" class="slider-img">
+        <div class="col-md-5 col-12 text-center">
+            <img id="sliderImage" src="assets/images/banner.jpg" alt="Slideshow" class="slider-img img-fluid rounded-3 shadow">
         </div>
     </div>
 

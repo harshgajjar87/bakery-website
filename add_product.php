@@ -25,6 +25,7 @@ if (isset($_POST['add'])) {
     $stmt->bind_param("ssdsi", $name, $desc, $price, $image, $category_id);
     $stmt->execute();
 
+    $_SESSION['success_message'] = "Product '$name' has been added successfully!";
     header("Location: dashboard.php");
     exit();
 }

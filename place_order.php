@@ -10,6 +10,9 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['cart']) || empty($_SESSION
 
 // Clear cart
 unset($_SESSION['cart']);
+
+// Set success message for notification
+$_SESSION['success_message'] = "Your order has been placed successfully! Thank you for shopping with Harsh Cake Zone.";
 ?>
 
 <div class="container mt-5">

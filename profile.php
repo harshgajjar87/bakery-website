@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Show welcome message
-if (isset($_SESSION['user_name'])) {
-    echo "<div class='alert alert-info text-center'>Hey {$_SESSION['user_name']}, welcome to Harsh Cake Zone</div>";
+if (isset($_SESSION['name'])) {
+  echo "<div class='alert alert-info text-center'>Hey {$_SESSION['name']}, welcome to Harsh Cake Zone</div>";
 }
 
 // Handle update form submission
@@ -33,7 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($conn, $query)) {
         $_SESSION['user_name'] = $username;
-        $success = "Profile updated successfully!";
+        $_SESSION['success_message'] = "Your profile has been updated successfully!";
+        header("Location: profile.php");
+        exit();
     } else {
         $error = "Failed to update profile.";
     }
