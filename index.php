@@ -22,7 +22,7 @@ include('config/db.php');
         <div class="col-md-5 col-12 text-center">
             <img id="sliderImage" src="assets/images/banner.jpg" alt="Slideshow" class="slider-img img-fluid rounded-3 shadow">
         </div>
-    </div>
+     </div>
 
     <br><br><br><br>
 
