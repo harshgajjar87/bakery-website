@@ -4,8 +4,8 @@
 Deploy the bakery website to Render after pushing the code to GitHub. The project is PHP/MySQL based, with existing render.yaml config.
 
 ## Steps
-- [ ] Check if GitHub repository exists or create a new one for the project
-- [ ] Commit all current changes and push the project to GitHub
+- [x] Check if GitHub repository exists or create a new one for the project
+- [x] Commit all current changes and push the project to GitHub
 - [ ] Create a Render account and install Render CLI if not already done
 - [ ] Set up a managed MySQL database on Render (or use external provider)
 - [ ] Deploy the web service on Render using the render.yaml config
